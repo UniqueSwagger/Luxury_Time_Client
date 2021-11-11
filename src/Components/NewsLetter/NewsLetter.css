@@ -43,3 +43,13 @@
   background-color: #f9a826;
   border-color: #f9a826;
 }
+@media only screen and (max-width: 768px) {
+  .news-letter .Orange {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 0;
+  }
+  .news-letter .form-control {
+    border-radius: 0%;
+  }
+}
