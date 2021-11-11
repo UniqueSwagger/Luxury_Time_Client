@@ -10,7 +10,6 @@ const NewsLetter = () => {
       axios
         .post("https://sheltered-ocean-21876.herokuapp.com/subscribe", data)
         .then((res) => {
-          console.log(res.data.insertedId);
           if (res.data.insertedId) {
             Swal.fire(
               `Thanks  for your subscription`,
