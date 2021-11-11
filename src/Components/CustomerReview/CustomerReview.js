@@ -43,7 +43,12 @@ const Testimonials = () => {
                 </div>
                 <p className="w-50 mx-auto text-muted fs-5">{description}</p>
                 <h5>
-                  <Rating name="read-only" value={rating} readOnly />
+                  <Rating
+                    name="read-only"
+                    value={rating}
+                    precision={0.5}
+                    readOnly
+                  />
                 </h5>
               </div>
             </Carousel.Item>

@@ -68,7 +68,7 @@ const AddService = () => {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label className="fw-bold">Event description</Form.Label>
+              <Form.Label className="fw-bold">About</Form.Label>
               <Form.Control
                 required
                 {...register("longDescription")}
