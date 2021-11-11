@@ -1,0 +1,45 @@
+.news-letter .form-control {
+  display: block;
+  min-height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.575rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 52px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.news-letter .card {
+  padding: 20px;
+  background-color: #eee;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
+.news-letter .form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #f9a826;
+  outline: 0;
+  box-shadow: none;
+}
+
+.news-letter .Orange {
+  border-top-right-radius: 28px;
+  border-bottom-right-radius: 28px;
+  color: #fff;
+  background-color: #f9a826;
+  border-color: #f9a826;
+}
+
+.news-letter .Orange:hover {
+  background-color: #f9a826;
+  border-color: #f9a826;
+}

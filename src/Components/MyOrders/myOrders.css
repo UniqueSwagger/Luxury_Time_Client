@@ -1,0 +1,5 @@
+@media only screen and (max-width: 768px) {
+  .orderImage {
+    width: 50% !important;
+  }
+}
