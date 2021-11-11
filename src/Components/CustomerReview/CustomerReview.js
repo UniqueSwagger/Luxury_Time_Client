@@ -41,7 +41,9 @@ const Testimonials = () => {
                     <h5>{email}</h5>
                   </div>
                 </div>
-                <p className="w-50 mx-auto text-muted fs-5">{description}</p>
+                <p className="w-50 mx-auto text-muted fs-5 desc">
+                  {description}
+                </p>
                 <h5>
                   <Rating
                     name="read-only"

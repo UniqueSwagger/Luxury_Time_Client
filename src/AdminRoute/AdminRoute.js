@@ -3,9 +3,9 @@ import { Redirect, Route } from "react-router";
 import Loader from "../Components/Loader/Loader";
 import useAuth from "../hooks/useAuth";
 
-const PrivateRoute = ({ children, ...rest }) => {
+const AdminRoute = ({ children, ...rest }) => {
   const { loading, admin } = useAuth();
-  console.log(admin);
+
   if (loading) {
     return <Loader />;
   }
@@ -30,4 +30,4 @@ const PrivateRoute = ({ children, ...rest }) => {
   );
 };
 
-export default PrivateRoute;
+export default AdminRoute;
