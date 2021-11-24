@@ -44,9 +44,7 @@ const useFirebase = () => {
             console.log(error.message);
           });
       })
-      .finally(() => {
-        setLoading(false);
-      });
+      .finally(() => setLoading(false));
   };
 
   //handle sign in
@@ -77,7 +75,7 @@ const useFirebase = () => {
       .then((result) => {
         //save user to the database
         setCurrentUser(result.user);
-        // saveUser(result.user.email, result.user.displayName, "put");
+        saveUser(result.user.email, result.user.displayName, "put");
       })
       .finally(() => {
         setLoading(false);
@@ -100,17 +98,23 @@ const useFirebase = () => {
     return sendPasswordResetEmail(auth, email);
   };
 
+  //admin check
   useEffect(() => {
     setLoading(true);
     axios
       .get(
-        `https://sheltered-ocean-21876.herokuapp.com/users/${currentUser?.email}`
+        `https://vast-plains-88495.herokuapp.com/users/${currentUser?.email}`
       )
       .then((res) => {
         setAdmin(res.data.admin);
-      })
-      .finally(() => {
-        setLoading(false);
+        if (admin) {
+          setLoading(false);
+        }
+        setInterval(() => {
+          if (!admin) {
+            setLoading(false);
+          }
+        }, 5000);
       });
   }, [admin, currentUser?.email]);
 
@@ -122,7 +126,6 @@ const useFirebase = () => {
       } else {
         setCurrentUser({});
       }
-
       setLoading(false);
     });
     return unsubscribe;

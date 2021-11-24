@@ -24,7 +24,7 @@ const Banner = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            style={{ height: "558px" }}
+            style={{ height: "558px " }}
             className="img-fluid d-block w-100 banner3"
             src={banner3}
             alt="Banner 3"

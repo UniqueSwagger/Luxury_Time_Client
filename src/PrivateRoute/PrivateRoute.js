@@ -1,10 +1,15 @@
 import React from "react";
-import { Redirect, Route } from "react-router";
+import { Redirect, Route, useHistory } from "react-router";
 import Loader from "../Components/Loader/Loader";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
 const PrivateRoute = ({ children, ...rest }) => {
-  const { currentUser, loading, admin } = useAuth();
+  const history = useHistory();
+  const {
+    currentUser: { email },
+    loading,
+    admin,
+  } = useAuth();
   if (loading) {
     return <Loader />;
   } else if (admin) {
@@ -13,17 +18,18 @@ const PrivateRoute = ({ children, ...rest }) => {
       title: "Sorry Sir! You are an admin.",
       text: "If you wanna buy something please login as a normal user",
     });
+    history.push("/");
   }
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        currentUser.email && !admin ? (
+        email && !admin ? (
           children
         ) : (
           <Redirect
             to={{
-              pathname: `${admin ? "/" : "/login"}`,
+              pathname: "/login",
               state: {
                 from: location,
               },
