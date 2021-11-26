@@ -6,14 +6,15 @@ import "./AllOrder.css";
 import Swal from "sweetalert2";
 
 const AllOrder = () => {
-  const [isStatus, setIsStatus] = useState("");
+  const [status, setStatus] = useState("");
   const [placedOrders, setPlacedOrders] = useState(null);
+  const [statusChanged, setStatusChanged] = useState(false);
   //getting all order info
   useEffect(() => {
     axios
       .get("https://sheltered-ocean-21876.herokuapp.com/orders")
       .then((res) => setPlacedOrders(res.data));
-  }, [isStatus]);
+  }, [statusChanged, status]);
 
   const handleUpdate = (e, id) => {
     Swal.fire({
@@ -26,14 +27,19 @@ const AllOrder = () => {
       confirmButtonText: "Yes",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("Updated!", "Successfully updated booking status", "success");
         axios
           .put(`https://sheltered-ocean-21876.herokuapp.com/orders/${id}`, {
             status: e.target.value,
           })
           .then((res) => {
             if (res.data.modifiedCount) {
-              setIsStatus(e.target.value);
+              setStatusChanged(id);
+              setStatus(e.target.value);
+              Swal.fire(
+                "Updated!",
+                "Successfully updated booking status",
+                "success"
+              );
             }
           });
       }
